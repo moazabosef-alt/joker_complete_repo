@@ -18,10 +18,10 @@ jobs:
         with:
           channel: stable
           cache: true
-      - name: Generate Flutter platform files
-run: |
-  flutter create --platforms=android,web --project-name=al_joker_store .
-  rm -f test/widget_test.dart
+- name: Generate Flutter platform files
+        run: |
+          flutter create --platforms=android,web --project-name=al_joker_store .
+          rm -f test/widget_test.dart
       - name: Dependencies
         run: flutter pub get
       - name: Analyze
