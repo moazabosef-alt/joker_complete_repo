@@ -163,7 +163,8 @@ class _StorePageState extends State<StorePage> {
         ...filtered.map((p) {
           final id = '${p['id']}'; final stock = (p['stock'] as num).toInt(); final qty = cart[id] ?? 0;
           return Card(child: Padding(padding: const EdgeInsets.all(10), child: Row(children: [
-            SizedBox(width: 90, height: 90, child: '${p['image_url']}'.isNotEmpty ? Image.network('${p['image_url']}', fit: BoxFit.cover, errorBuilder: (_, _, _) => const Icon(Icons.devices, size: 50)) : const Icon(Icons.devices, size: 50)),
+            SizedBox(width: 90, height: 90, child: '${p['image_url']}'.isNotEmpty ? Image.network('${p['image_url']}', fit: BoxFit.cover, errorBuilder: (context, error, stackTrace) =>
+    const Icon(Icons.devices, size: 50)) : const Icon(Icons.devices, size: 50)),
             const SizedBox(width: 10), Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text('${p['name']}', style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
               Text('${p['description']}', maxLines: 2, overflow: TextOverflow.ellipsis),
